@@ -1,0 +1,6 @@
+{
+  "name": "SLO Decision Dashboard",
+  "description": "Decision dashboard connecting SLIs, SLOs, error budgets, user impact, and configurable rules for reliability prioritization in examination-heavy platforms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

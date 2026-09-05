@@ -1,0 +1,2289 @@
+{
+  "metadata": {
+    "environment": "DEMO / SYNTHETIC DATA",
+    "generated_at": "2026-09-03T06:00:00+00:00",
+    "target_platform": "Online Learning Platform Examination Subsystem",
+    "total_services": 5,
+    "total_sli_records": 120,
+    "total_incidents": 55,
+    "total_feature_plans": 16,
+    "total_reliability_tasks": 16,
+    "total_rules": 5
+  },
+  "users": [
+    {
+      "id": "usr_mgr_1",
+      "name": "Elena Rostova",
+      "email": "elena.rostova@examlearn.edu",
+      "password_hash": "demo_argon2_hash_mgr",
+      "role": "ENGINEERING_MANAGER",
+      "created_at": "2026-03-07T06:00:00+00:00"
+    },
+    {
+      "id": "usr_eng_1",
+      "name": "Marcus Chen",
+      "email": "marcus.chen@examlearn.edu",
+      "password_hash": "demo_argon2_hash_eng",
+      "role": "ENGINEER",
+      "created_at": "2026-06-05T06:00:00+00:00"
+    }
+  ],
+  "services": [
+    {
+      "id": "srv_exam_sub",
+      "name": "Exam Submission Service",
+      "description": "Critical student test answer submission, timed upload, and integrity hashing.",
+      "slo_target": 99.99,
+      "sli_type": "AVAILABILITY_HTTP",
+      "tier": "TIER_1",
+      "created_at": "2026-05-06T06:00:00+00:00"
+    },
+    {
+      "id": "srv_auth_login",
+      "name": "Login & Identity Service",
+      "description": "Student single sign-on, proctoring session tokens, multi-factor verification.",
+      "slo_target": 99.95,
+      "sli_type": "AVAILABILITY_HTTP",
+      "tier": "TIER_1",
+      "created_at": "2026-05-06T06:00:00+00:00"
+    },
+    {
+      "id": "srv_video_stream",
+      "name": "Video Streaming Service",
+      "description": "Lecture replay, pre-recorded exam prep lectures, and asynchronous demos.",
+      "slo_target": 99.5,
+      "sli_type": "AVAILABILITY_HTTP",
+      "tier": "TIER_2",
+      "created_at": "2026-05-06T06:00:00+00:00"
+    },
+    {
+      "id": "srv_course_content",
+      "name": "Course Content Service",
+      "description": "Syllabus, reading materials, problem sets, and downloadable PDF assets.",
+      "slo_target": 99.9,
+      "sli_type": "AVAILABILITY_HTTP",
+      "tier": "TIER_2",
+      "created_at": "2026-05-06T06:00:00+00:00"
+    },
+    {
+      "id": "srv_api_gateway",
+      "name": "API Gateway & Edge Proxy",
+      "description": "Global TLS termination, edge rate limiting, exam traffic routing.",
+      "slo_target": 99.99,
+      "sli_type": "AVAILABILITY_HTTP",
+      "tier": "TIER_1",
+      "created_at": "2026-05-06T06:00:00+00:00"
+    }
+  ],
+  "sli_metrics": [
+    {
+      "id": "sli_0001",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T06:00:00+00:00",
+      "total_requests": 95028,
+      "successful_requests": 95024,
+      "failed_requests": 4,
+      "response_time": 115.07,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0002",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T06:00:00+00:00",
+      "total_requests": 130217,
+      "successful_requests": 130188,
+      "failed_requests": 29,
+      "response_time": 107.12,
+      "availability": 99.978
+    },
+    {
+      "id": "sli_0003",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T06:00:00+00:00",
+      "total_requests": 56157,
+      "successful_requests": 55943,
+      "failed_requests": 214,
+      "response_time": 313.21,
+      "availability": 99.619
+    },
+    {
+      "id": "sli_0004",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T06:00:00+00:00",
+      "total_requests": 77217,
+      "successful_requests": 77172,
+      "failed_requests": 45,
+      "response_time": 134.07,
+      "availability": 99.942
+    },
+    {
+      "id": "sli_0005",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T06:00:00+00:00",
+      "total_requests": 289029,
+      "successful_requests": 289016,
+      "failed_requests": 13,
+      "response_time": 32.52,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0006",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T07:00:00+00:00",
+      "total_requests": 95338,
+      "successful_requests": 95334,
+      "failed_requests": 4,
+      "response_time": 116.82,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0007",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T07:00:00+00:00",
+      "total_requests": 135072,
+      "successful_requests": 135046,
+      "failed_requests": 26,
+      "response_time": 113.56,
+      "availability": 99.981
+    },
+    {
+      "id": "sli_0008",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T07:00:00+00:00",
+      "total_requests": 53598,
+      "successful_requests": 53391,
+      "failed_requests": 207,
+      "response_time": 328.8,
+      "availability": 99.614
+    },
+    {
+      "id": "sli_0009",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T07:00:00+00:00",
+      "total_requests": 69128,
+      "successful_requests": 69087,
+      "failed_requests": 41,
+      "response_time": 148.31,
+      "availability": 99.941
+    },
+    {
+      "id": "sli_0010",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T07:00:00+00:00",
+      "total_requests": 394366,
+      "successful_requests": 394352,
+      "failed_requests": 14,
+      "response_time": 31.29,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0011",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T08:00:00+00:00",
+      "total_requests": 85347,
+      "successful_requests": 85344,
+      "failed_requests": 3,
+      "response_time": 134.56,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0012",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T08:00:00+00:00",
+      "total_requests": 108203,
+      "successful_requests": 108186,
+      "failed_requests": 17,
+      "response_time": 87.28,
+      "availability": 99.984
+    },
+    {
+      "id": "sli_0013",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T08:00:00+00:00",
+      "total_requests": 48524,
+      "successful_requests": 48359,
+      "failed_requests": 165,
+      "response_time": 329.68,
+      "availability": 99.66
+    },
+    {
+      "id": "sli_0014",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T08:00:00+00:00",
+      "total_requests": 65895,
+      "successful_requests": 65864,
+      "failed_requests": 31,
+      "response_time": 146.38,
+      "availability": 99.953
+    },
+    {
+      "id": "sli_0015",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T08:00:00+00:00",
+      "total_requests": 400978,
+      "successful_requests": 400964,
+      "failed_requests": 14,
+      "response_time": 12.84,
+      "availability": 99.997
+    },
+    {
+      "id": "sli_0016",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T09:00:00+00:00",
+      "total_requests": 100753,
+      "successful_requests": 100749,
+      "failed_requests": 4,
+      "response_time": 131.78,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0017",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T09:00:00+00:00",
+      "total_requests": 109199,
+      "successful_requests": 109181,
+      "failed_requests": 18,
+      "response_time": 108.65,
+      "availability": 99.984
+    },
+    {
+      "id": "sli_0018",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T09:00:00+00:00",
+      "total_requests": 40983,
+      "successful_requests": 40850,
+      "failed_requests": 133,
+      "response_time": 320.93,
+      "availability": 99.675
+    },
+    {
+      "id": "sli_0019",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T09:00:00+00:00",
+      "total_requests": 68978,
+      "successful_requests": 68943,
+      "failed_requests": 35,
+      "response_time": 139.16,
+      "availability": 99.949
+    },
+    {
+      "id": "sli_0020",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T09:00:00+00:00",
+      "total_requests": 340021,
+      "successful_requests": 340009,
+      "failed_requests": 12,
+      "response_time": 14.08,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0021",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T10:00:00+00:00",
+      "total_requests": 97169,
+      "successful_requests": 97164,
+      "failed_requests": 5,
+      "response_time": 128.76,
+      "availability": 99.995
+    },
+    {
+      "id": "sli_0022",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T10:00:00+00:00",
+      "total_requests": 134431,
+      "successful_requests": 134408,
+      "failed_requests": 23,
+      "response_time": 107.7,
+      "availability": 99.983
+    },
+    {
+      "id": "sli_0023",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T10:00:00+00:00",
+      "total_requests": 40937,
+      "successful_requests": 40804,
+      "failed_requests": 133,
+      "response_time": 322.12,
+      "availability": 99.675
+    },
+    {
+      "id": "sli_0024",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T10:00:00+00:00",
+      "total_requests": 64080,
+      "successful_requests": 64050,
+      "failed_requests": 30,
+      "response_time": 131.92,
+      "availability": 99.953
+    },
+    {
+      "id": "sli_0025",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T10:00:00+00:00",
+      "total_requests": 390156,
+      "successful_requests": 390139,
+      "failed_requests": 17,
+      "response_time": 29.62,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0026",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T11:00:00+00:00",
+      "total_requests": 76995,
+      "successful_requests": 76992,
+      "failed_requests": 3,
+      "response_time": 117.74,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0027",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T11:00:00+00:00",
+      "total_requests": 153658,
+      "successful_requests": 153632,
+      "failed_requests": 26,
+      "response_time": 106.59,
+      "availability": 99.983
+    },
+    {
+      "id": "sli_0028",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T11:00:00+00:00",
+      "total_requests": 48129,
+      "successful_requests": 47970,
+      "failed_requests": 159,
+      "response_time": 323.39,
+      "availability": 99.67
+    },
+    {
+      "id": "sli_0029",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T11:00:00+00:00",
+      "total_requests": 59732,
+      "successful_requests": 59700,
+      "failed_requests": 32,
+      "response_time": 159.75,
+      "availability": 99.946
+    },
+    {
+      "id": "sli_0030",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T11:00:00+00:00",
+      "total_requests": 319210,
+      "successful_requests": 319197,
+      "failed_requests": 13,
+      "response_time": 31.3,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0031",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T12:00:00+00:00",
+      "total_requests": 87763,
+      "successful_requests": 87759,
+      "failed_requests": 4,
+      "response_time": 119.65,
+      "availability": 99.995
+    },
+    {
+      "id": "sli_0032",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T12:00:00+00:00",
+      "total_requests": 155526,
+      "successful_requests": 155495,
+      "failed_requests": 31,
+      "response_time": 85.09,
+      "availability": 99.98
+    },
+    {
+      "id": "sli_0033",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T12:00:00+00:00",
+      "total_requests": 40803,
+      "successful_requests": 40640,
+      "failed_requests": 163,
+      "response_time": 328.72,
+      "availability": 99.601
+    },
+    {
+      "id": "sli_0034",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T12:00:00+00:00",
+      "total_requests": 71485,
+      "successful_requests": 71456,
+      "failed_requests": 29,
+      "response_time": 145.09,
+      "availability": 99.959
+    },
+    {
+      "id": "sli_0035",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T12:00:00+00:00",
+      "total_requests": 386495,
+      "successful_requests": 386478,
+      "failed_requests": 17,
+      "response_time": 12.34,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0036",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T13:00:00+00:00",
+      "total_requests": 81142,
+      "successful_requests": 81138,
+      "failed_requests": 4,
+      "response_time": 132.0,
+      "availability": 99.995
+    },
+    {
+      "id": "sli_0037",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T13:00:00+00:00",
+      "total_requests": 135113,
+      "successful_requests": 135085,
+      "failed_requests": 28,
+      "response_time": 104.83,
+      "availability": 99.979
+    },
+    {
+      "id": "sli_0038",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T13:00:00+00:00",
+      "total_requests": 51570,
+      "successful_requests": 51353,
+      "failed_requests": 217,
+      "response_time": 324.03,
+      "availability": 99.579
+    },
+    {
+      "id": "sli_0039",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T13:00:00+00:00",
+      "total_requests": 76555,
+      "successful_requests": 76518,
+      "failed_requests": 37,
+      "response_time": 156.35,
+      "availability": 99.952
+    },
+    {
+      "id": "sli_0040",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T13:00:00+00:00",
+      "total_requests": 365424,
+      "successful_requests": 365410,
+      "failed_requests": 14,
+      "response_time": 35.89,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0041",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T14:00:00+00:00",
+      "total_requests": 91291,
+      "successful_requests": 91287,
+      "failed_requests": 4,
+      "response_time": 128.63,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0042",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T14:00:00+00:00",
+      "total_requests": 114005,
+      "successful_requests": 113983,
+      "failed_requests": 22,
+      "response_time": 110.04,
+      "availability": 99.981
+    },
+    {
+      "id": "sli_0043",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T14:00:00+00:00",
+      "total_requests": 49500,
+      "successful_requests": 49341,
+      "failed_requests": 159,
+      "response_time": 330.59,
+      "availability": 99.679
+    },
+    {
+      "id": "sli_0044",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T14:00:00+00:00",
+      "total_requests": 65870,
+      "successful_requests": 65835,
+      "failed_requests": 35,
+      "response_time": 155.61,
+      "availability": 99.947
+    },
+    {
+      "id": "sli_0045",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T14:00:00+00:00",
+      "total_requests": 334761,
+      "successful_requests": 334746,
+      "failed_requests": 15,
+      "response_time": 18.19,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0046",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T15:00:00+00:00",
+      "total_requests": 101122,
+      "successful_requests": 101118,
+      "failed_requests": 4,
+      "response_time": 115.78,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0047",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T15:00:00+00:00",
+      "total_requests": 124420,
+      "successful_requests": 124396,
+      "failed_requests": 24,
+      "response_time": 96.16,
+      "availability": 99.981
+    },
+    {
+      "id": "sli_0048",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T15:00:00+00:00",
+      "total_requests": 46048,
+      "successful_requests": 45881,
+      "failed_requests": 167,
+      "response_time": 339.69,
+      "availability": 99.637
+    },
+    {
+      "id": "sli_0049",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T15:00:00+00:00",
+      "total_requests": 66314,
+      "successful_requests": 66281,
+      "failed_requests": 33,
+      "response_time": 148.22,
+      "availability": 99.95
+    },
+    {
+      "id": "sli_0050",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T15:00:00+00:00",
+      "total_requests": 381167,
+      "successful_requests": 381152,
+      "failed_requests": 15,
+      "response_time": 31.03,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0051",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T16:00:00+00:00",
+      "total_requests": 99797,
+      "successful_requests": 99793,
+      "failed_requests": 4,
+      "response_time": 117.3,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0052",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T16:00:00+00:00",
+      "total_requests": 120827,
+      "successful_requests": 120803,
+      "failed_requests": 24,
+      "response_time": 86.56,
+      "availability": 99.98
+    },
+    {
+      "id": "sli_0053",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T16:00:00+00:00",
+      "total_requests": 45139,
+      "successful_requests": 44967,
+      "failed_requests": 172,
+      "response_time": 329.86,
+      "availability": 99.619
+    },
+    {
+      "id": "sli_0054",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T16:00:00+00:00",
+      "total_requests": 57440,
+      "successful_requests": 57408,
+      "failed_requests": 32,
+      "response_time": 138.63,
+      "availability": 99.944
+    },
+    {
+      "id": "sli_0055",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T16:00:00+00:00",
+      "total_requests": 306719,
+      "successful_requests": 306707,
+      "failed_requests": 12,
+      "response_time": 27.31,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0056",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T17:00:00+00:00",
+      "total_requests": 105139,
+      "successful_requests": 105135,
+      "failed_requests": 4,
+      "response_time": 114.5,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0057",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T17:00:00+00:00",
+      "total_requests": 112620,
+      "successful_requests": 112599,
+      "failed_requests": 21,
+      "response_time": 89.7,
+      "availability": 99.981
+    },
+    {
+      "id": "sli_0058",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T17:00:00+00:00",
+      "total_requests": 46452,
+      "successful_requests": 46296,
+      "failed_requests": 156,
+      "response_time": 334.65,
+      "availability": 99.664
+    },
+    {
+      "id": "sli_0059",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T17:00:00+00:00",
+      "total_requests": 69583,
+      "successful_requests": 69553,
+      "failed_requests": 30,
+      "response_time": 151.61,
+      "availability": 99.957
+    },
+    {
+      "id": "sli_0060",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T17:00:00+00:00",
+      "total_requests": 299924,
+      "successful_requests": 299915,
+      "failed_requests": 9,
+      "response_time": 21.44,
+      "availability": 99.997
+    },
+    {
+      "id": "sli_0061",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T18:00:00+00:00",
+      "total_requests": 94577,
+      "successful_requests": 94573,
+      "failed_requests": 4,
+      "response_time": 129.91,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0062",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T18:00:00+00:00",
+      "total_requests": 118122,
+      "successful_requests": 118094,
+      "failed_requests": 28,
+      "response_time": 104.27,
+      "availability": 99.976
+    },
+    {
+      "id": "sli_0063",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T18:00:00+00:00",
+      "total_requests": 51323,
+      "successful_requests": 51109,
+      "failed_requests": 214,
+      "response_time": 317.12,
+      "availability": 99.583
+    },
+    {
+      "id": "sli_0064",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T18:00:00+00:00",
+      "total_requests": 55690,
+      "successful_requests": 55664,
+      "failed_requests": 26,
+      "response_time": 135.45,
+      "availability": 99.953
+    },
+    {
+      "id": "sli_0065",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T18:00:00+00:00",
+      "total_requests": 356874,
+      "successful_requests": 356860,
+      "failed_requests": 14,
+      "response_time": 19.8,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0066",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T19:00:00+00:00",
+      "total_requests": 90957,
+      "successful_requests": 90953,
+      "failed_requests": 4,
+      "response_time": 112.32,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0067",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T19:00:00+00:00",
+      "total_requests": 123779,
+      "successful_requests": 123756,
+      "failed_requests": 23,
+      "response_time": 95.03,
+      "availability": 99.981
+    },
+    {
+      "id": "sli_0068",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T19:00:00+00:00",
+      "total_requests": 45673,
+      "successful_requests": 45514,
+      "failed_requests": 159,
+      "response_time": 327.18,
+      "availability": 99.652
+    },
+    {
+      "id": "sli_0069",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T19:00:00+00:00",
+      "total_requests": 71197,
+      "successful_requests": 71168,
+      "failed_requests": 29,
+      "response_time": 149.25,
+      "availability": 99.959
+    },
+    {
+      "id": "sli_0070",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T19:00:00+00:00",
+      "total_requests": 304575,
+      "successful_requests": 304564,
+      "failed_requests": 11,
+      "response_time": 37.19,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0071",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T20:00:00+00:00",
+      "total_requests": 98332,
+      "successful_requests": 98327,
+      "failed_requests": 5,
+      "response_time": 112.43,
+      "availability": 99.995
+    },
+    {
+      "id": "sli_0072",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T20:00:00+00:00",
+      "total_requests": 137980,
+      "successful_requests": 137954,
+      "failed_requests": 26,
+      "response_time": 91.86,
+      "availability": 99.981
+    },
+    {
+      "id": "sli_0073",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T20:00:00+00:00",
+      "total_requests": 42192,
+      "successful_requests": 42025,
+      "failed_requests": 167,
+      "response_time": 324.32,
+      "availability": 99.604
+    },
+    {
+      "id": "sli_0074",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T20:00:00+00:00",
+      "total_requests": 71740,
+      "successful_requests": 71704,
+      "failed_requests": 36,
+      "response_time": 140.61,
+      "availability": 99.95
+    },
+    {
+      "id": "sli_0075",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T20:00:00+00:00",
+      "total_requests": 285210,
+      "successful_requests": 285198,
+      "failed_requests": 12,
+      "response_time": 33.31,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0076",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T21:00:00+00:00",
+      "total_requests": 92718,
+      "successful_requests": 92713,
+      "failed_requests": 5,
+      "response_time": 127.7,
+      "availability": 99.995
+    },
+    {
+      "id": "sli_0077",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T21:00:00+00:00",
+      "total_requests": 154964,
+      "successful_requests": 154932,
+      "failed_requests": 32,
+      "response_time": 101.92,
+      "availability": 99.979
+    },
+    {
+      "id": "sli_0078",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T21:00:00+00:00",
+      "total_requests": 41914,
+      "successful_requests": 41767,
+      "failed_requests": 147,
+      "response_time": 330.93,
+      "availability": 99.649
+    },
+    {
+      "id": "sli_0079",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T21:00:00+00:00",
+      "total_requests": 75369,
+      "successful_requests": 75333,
+      "failed_requests": 36,
+      "response_time": 143.68,
+      "availability": 99.952
+    },
+    {
+      "id": "sli_0080",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T21:00:00+00:00",
+      "total_requests": 335936,
+      "successful_requests": 335925,
+      "failed_requests": 11,
+      "response_time": 14.64,
+      "availability": 99.997
+    },
+    {
+      "id": "sli_0081",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T22:00:00+00:00",
+      "total_requests": 301999,
+      "successful_requests": 294752,
+      "failed_requests": 7247,
+      "response_time": 2032.44,
+      "availability": 97.6
+    },
+    {
+      "id": "sli_0082",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T22:00:00+00:00",
+      "total_requests": 258755,
+      "successful_requests": 257850,
+      "failed_requests": 905,
+      "response_time": 722.77,
+      "availability": 99.65
+    },
+    {
+      "id": "sli_0083",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T22:00:00+00:00",
+      "total_requests": 42086,
+      "successful_requests": 41924,
+      "failed_requests": 162,
+      "response_time": 333.48,
+      "availability": 99.615
+    },
+    {
+      "id": "sli_0084",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T22:00:00+00:00",
+      "total_requests": 54608,
+      "successful_requests": 54582,
+      "failed_requests": 26,
+      "response_time": 140.65,
+      "availability": 99.952
+    },
+    {
+      "id": "sli_0085",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T22:00:00+00:00",
+      "total_requests": 300424,
+      "successful_requests": 300411,
+      "failed_requests": 13,
+      "response_time": 26.77,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0086",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-02T23:00:00+00:00",
+      "total_requests": 245605,
+      "successful_requests": 239711,
+      "failed_requests": 5894,
+      "response_time": 1824.65,
+      "availability": 97.6
+    },
+    {
+      "id": "sli_0087",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-02T23:00:00+00:00",
+      "total_requests": 228002,
+      "successful_requests": 227204,
+      "failed_requests": 798,
+      "response_time": 689.48,
+      "availability": 99.65
+    },
+    {
+      "id": "sli_0088",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-02T23:00:00+00:00",
+      "total_requests": 50841,
+      "successful_requests": 50675,
+      "failed_requests": 166,
+      "response_time": 326.8,
+      "availability": 99.673
+    },
+    {
+      "id": "sli_0089",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-02T23:00:00+00:00",
+      "total_requests": 69240,
+      "successful_requests": 69205,
+      "failed_requests": 35,
+      "response_time": 134.09,
+      "availability": 99.949
+    },
+    {
+      "id": "sli_0090",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-02T23:00:00+00:00",
+      "total_requests": 370616,
+      "successful_requests": 370603,
+      "failed_requests": 13,
+      "response_time": 28.34,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0091",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-03T00:00:00+00:00",
+      "total_requests": 317333,
+      "successful_requests": 309718,
+      "failed_requests": 7615,
+      "response_time": 2011.72,
+      "availability": 97.6
+    },
+    {
+      "id": "sli_0092",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-03T00:00:00+00:00",
+      "total_requests": 259893,
+      "successful_requests": 258984,
+      "failed_requests": 909,
+      "response_time": 721.67,
+      "availability": 99.65
+    },
+    {
+      "id": "sli_0093",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-03T00:00:00+00:00",
+      "total_requests": 54432,
+      "successful_requests": 54211,
+      "failed_requests": 221,
+      "response_time": 334.03,
+      "availability": 99.594
+    },
+    {
+      "id": "sli_0094",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-03T00:00:00+00:00",
+      "total_requests": 69042,
+      "successful_requests": 69014,
+      "failed_requests": 28,
+      "response_time": 135.28,
+      "availability": 99.959
+    },
+    {
+      "id": "sli_0095",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-03T00:00:00+00:00",
+      "total_requests": 317018,
+      "successful_requests": 317008,
+      "failed_requests": 10,
+      "response_time": 23.49,
+      "availability": 99.997
+    },
+    {
+      "id": "sli_0096",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-03T01:00:00+00:00",
+      "total_requests": 215484,
+      "successful_requests": 210313,
+      "failed_requests": 5171,
+      "response_time": 2006.23,
+      "availability": 97.6
+    },
+    {
+      "id": "sli_0097",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-03T01:00:00+00:00",
+      "total_requests": 242244,
+      "successful_requests": 241397,
+      "failed_requests": 847,
+      "response_time": 733.67,
+      "availability": 99.65
+    },
+    {
+      "id": "sli_0098",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-03T01:00:00+00:00",
+      "total_requests": 57398,
+      "successful_requests": 57142,
+      "failed_requests": 256,
+      "response_time": 313.68,
+      "availability": 99.554
+    },
+    {
+      "id": "sli_0099",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-03T01:00:00+00:00",
+      "total_requests": 66867,
+      "successful_requests": 66830,
+      "failed_requests": 37,
+      "response_time": 143.02,
+      "availability": 99.945
+    },
+    {
+      "id": "sli_0100",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-03T01:00:00+00:00",
+      "total_requests": 385794,
+      "successful_requests": 385781,
+      "failed_requests": 13,
+      "response_time": 31.41,
+      "availability": 99.997
+    },
+    {
+      "id": "sli_0101",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-03T02:00:00+00:00",
+      "total_requests": 319312,
+      "successful_requests": 311649,
+      "failed_requests": 7663,
+      "response_time": 1851.88,
+      "availability": 97.6
+    },
+    {
+      "id": "sli_0102",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-03T02:00:00+00:00",
+      "total_requests": 258653,
+      "successful_requests": 257748,
+      "failed_requests": 905,
+      "response_time": 741.38,
+      "availability": 99.65
+    },
+    {
+      "id": "sli_0103",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-03T02:00:00+00:00",
+      "total_requests": 49969,
+      "successful_requests": 49808,
+      "failed_requests": 161,
+      "response_time": 332.35,
+      "availability": 99.678
+    },
+    {
+      "id": "sli_0104",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-03T02:00:00+00:00",
+      "total_requests": 65154,
+      "successful_requests": 65121,
+      "failed_requests": 33,
+      "response_time": 153.4,
+      "availability": 99.949
+    },
+    {
+      "id": "sli_0105",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-03T02:00:00+00:00",
+      "total_requests": 341088,
+      "successful_requests": 341076,
+      "failed_requests": 12,
+      "response_time": 13.32,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0106",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-03T03:00:00+00:00",
+      "total_requests": 309252,
+      "successful_requests": 301830,
+      "failed_requests": 7422,
+      "response_time": 1846.48,
+      "availability": 97.6
+    },
+    {
+      "id": "sli_0107",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-03T03:00:00+00:00",
+      "total_requests": 260975,
+      "successful_requests": 260062,
+      "failed_requests": 913,
+      "response_time": 727.46,
+      "availability": 99.65
+    },
+    {
+      "id": "sli_0108",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-03T03:00:00+00:00",
+      "total_requests": 40605,
+      "successful_requests": 40454,
+      "failed_requests": 151,
+      "response_time": 337.81,
+      "availability": 99.628
+    },
+    {
+      "id": "sli_0109",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-03T03:00:00+00:00",
+      "total_requests": 72825,
+      "successful_requests": 72796,
+      "failed_requests": 29,
+      "response_time": 138.16,
+      "availability": 99.96
+    },
+    {
+      "id": "sli_0110",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-03T03:00:00+00:00",
+      "total_requests": 321477,
+      "successful_requests": 321465,
+      "failed_requests": 12,
+      "response_time": 14.19,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0111",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-03T04:00:00+00:00",
+      "total_requests": 225512,
+      "successful_requests": 220100,
+      "failed_requests": 5412,
+      "response_time": 1915.58,
+      "availability": 97.6
+    },
+    {
+      "id": "sli_0112",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-03T04:00:00+00:00",
+      "total_requests": 272632,
+      "successful_requests": 271678,
+      "failed_requests": 954,
+      "response_time": 683.72,
+      "availability": 99.65
+    },
+    {
+      "id": "sli_0113",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-03T04:00:00+00:00",
+      "total_requests": 49584,
+      "successful_requests": 49363,
+      "failed_requests": 221,
+      "response_time": 329.12,
+      "availability": 99.554
+    },
+    {
+      "id": "sli_0114",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-03T04:00:00+00:00",
+      "total_requests": 66832,
+      "successful_requests": 66794,
+      "failed_requests": 38,
+      "response_time": 151.42,
+      "availability": 99.943
+    },
+    {
+      "id": "sli_0115",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-03T04:00:00+00:00",
+      "total_requests": 316010,
+      "successful_requests": 316000,
+      "failed_requests": 10,
+      "response_time": 30.67,
+      "availability": 99.997
+    },
+    {
+      "id": "sli_0116",
+      "service_id": "srv_exam_sub",
+      "timestamp": "2026-09-03T05:00:00+00:00",
+      "total_requests": 107226,
+      "successful_requests": 107222,
+      "failed_requests": 4,
+      "response_time": 129.31,
+      "availability": 99.996
+    },
+    {
+      "id": "sli_0117",
+      "service_id": "srv_auth_login",
+      "timestamp": "2026-09-03T05:00:00+00:00",
+      "total_requests": 148574,
+      "successful_requests": 148539,
+      "failed_requests": 35,
+      "response_time": 105.68,
+      "availability": 99.976
+    },
+    {
+      "id": "sli_0118",
+      "service_id": "srv_video_stream",
+      "timestamp": "2026-09-03T05:00:00+00:00",
+      "total_requests": 55230,
+      "successful_requests": 55023,
+      "failed_requests": 207,
+      "response_time": 322.03,
+      "availability": 99.625
+    },
+    {
+      "id": "sli_0119",
+      "service_id": "srv_course_content",
+      "timestamp": "2026-09-03T05:00:00+00:00",
+      "total_requests": 76006,
+      "successful_requests": 75966,
+      "failed_requests": 40,
+      "response_time": 139.89,
+      "availability": 99.947
+    },
+    {
+      "id": "sli_0120",
+      "service_id": "srv_api_gateway",
+      "timestamp": "2026-09-03T05:00:00+00:00",
+      "total_requests": 289937,
+      "successful_requests": 289924,
+      "failed_requests": 13,
+      "response_time": 20.21,
+      "availability": 99.996
+    }
+  ],
+  "incidents": [
+    {
+      "id": "inc_rec_001",
+      "incident_id": "INC-2026-1001",
+      "service_id": "srv_exam_sub",
+      "title": "Student upload timeout during Midterm calculus submission",
+      "severity": "CRITICAL",
+      "users_affected": 3450,
+      "duration_minutes": 48,
+      "status": "INVESTIGATING",
+      "exam_period": true,
+      "created_at": "2026-09-02T23:20:00+00:00"
+    },
+    {
+      "id": "inc_rec_002",
+      "incident_id": "INC-2026-1002",
+      "service_id": "srv_exam_sub",
+      "title": "Database transaction deadlock on submission ledger partition",
+      "severity": "CRITICAL",
+      "users_affected": 2900,
+      "duration_minutes": 65,
+      "status": "OPEN",
+      "exam_period": true,
+      "created_at": "2026-09-02T04:28:00+00:00"
+    },
+    {
+      "id": "inc_rec_003",
+      "incident_id": "INC-2026-1003",
+      "service_id": "srv_exam_sub",
+      "title": "File integrity SHA-256 validation microservice 504 gateway timeout",
+      "severity": "HIGH",
+      "users_affected": 1200,
+      "duration_minutes": 35,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-01T21:00:00+00:00"
+    },
+    {
+      "id": "inc_rec_004",
+      "incident_id": "INC-2026-1004",
+      "service_id": "srv_exam_sub",
+      "title": "Late submission grace-period clock sync discrepancy",
+      "severity": "HIGH",
+      "users_affected": 850,
+      "duration_minutes": 25,
+      "status": "MITIGATED",
+      "exam_period": true,
+      "created_at": "2026-09-02T18:43:00+00:00"
+    },
+    {
+      "id": "inc_rec_005",
+      "incident_id": "INC-2026-1005",
+      "service_id": "srv_exam_sub",
+      "title": "Payload size limitation rejection on PDF scan uploads",
+      "severity": "MEDIUM",
+      "users_affected": 340,
+      "duration_minutes": 40,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-02T10:27:00+00:00"
+    },
+    {
+      "id": "inc_rec_006",
+      "incident_id": "INC-2026-1006",
+      "service_id": "srv_exam_sub",
+      "title": "S3 multipart upload chunk retry storm",
+      "severity": "HIGH",
+      "users_affected": 1100,
+      "duration_minutes": 52,
+      "status": "INVESTIGATING",
+      "exam_period": true,
+      "created_at": "2026-09-02T17:07:00+00:00"
+    },
+    {
+      "id": "inc_rec_007",
+      "incident_id": "INC-2026-1007",
+      "service_id": "srv_exam_sub",
+      "title": "Answer autosave websocket disconnect during biology final",
+      "severity": "CRITICAL",
+      "users_affected": 2100,
+      "duration_minutes": 30,
+      "status": "OPEN",
+      "exam_period": true,
+      "created_at": "2026-09-03T01:00:00+00:00"
+    },
+    {
+      "id": "inc_rec_008",
+      "incident_id": "INC-2026-1008",
+      "service_id": "srv_exam_sub",
+      "title": "Export to grading system queue worker stall",
+      "severity": "LOW",
+      "users_affected": 0,
+      "duration_minutes": 120,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-03T01:17:00+00:00"
+    },
+    {
+      "id": "inc_rec_009",
+      "incident_id": "INC-2026-1009",
+      "service_id": "srv_exam_sub",
+      "title": "Submission confirmation email delivery delay",
+      "severity": "LOW",
+      "users_affected": 450,
+      "duration_minutes": 15,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T10:39:00+00:00"
+    },
+    {
+      "id": "inc_rec_010",
+      "incident_id": "INC-2026-1010",
+      "service_id": "srv_exam_sub",
+      "title": "Proctoring attachment upload retry failure",
+      "severity": "MEDIUM",
+      "users_affected": 620,
+      "duration_minutes": 22,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-02T17:49:00+00:00"
+    },
+    {
+      "id": "inc_rec_011",
+      "incident_id": "INC-2026-1011",
+      "service_id": "srv_exam_sub",
+      "title": "Exam state restore failed after browser crash",
+      "severity": "HIGH",
+      "users_affected": 780,
+      "duration_minutes": 45,
+      "status": "OPEN",
+      "exam_period": true,
+      "created_at": "2026-09-01T21:21:00+00:00"
+    },
+    {
+      "id": "inc_rec_012",
+      "incident_id": "INC-2026-1012",
+      "service_id": "srv_exam_sub",
+      "title": "Student timer countdown desync on mobile browser",
+      "severity": "MEDIUM",
+      "users_affected": 510,
+      "duration_minutes": 35,
+      "status": "MITIGATED",
+      "exam_period": true,
+      "created_at": "2026-09-01T17:18:00+00:00"
+    },
+    {
+      "id": "inc_rec_013",
+      "incident_id": "INC-2026-1013",
+      "service_id": "srv_auth_login",
+      "title": "SSO token verification bottleneck during 09:00 AM exam rush",
+      "severity": "HIGH",
+      "users_affected": 2800,
+      "duration_minutes": 32,
+      "status": "MITIGATED",
+      "exam_period": true,
+      "created_at": "2026-09-01T09:06:00+00:00"
+    },
+    {
+      "id": "inc_rec_014",
+      "incident_id": "INC-2026-1014",
+      "service_id": "srv_auth_login",
+      "title": "MFA SMS provider gateway delivery latency",
+      "severity": "HIGH",
+      "users_affected": 1400,
+      "duration_minutes": 45,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-03T00:47:00+00:00"
+    },
+    {
+      "id": "inc_rec_015",
+      "incident_id": "INC-2026-1015",
+      "service_id": "srv_auth_login",
+      "title": "Proctoring session cookie invalidation under IP roam",
+      "severity": "MEDIUM",
+      "users_affected": 310,
+      "duration_minutes": 20,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-02T06:12:00+00:00"
+    },
+    {
+      "id": "inc_rec_016",
+      "incident_id": "INC-2026-1016",
+      "service_id": "srv_auth_login",
+      "title": "Redis session cache cluster memory threshold alert",
+      "severity": "MEDIUM",
+      "users_affected": 0,
+      "duration_minutes": 15,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T22:26:00+00:00"
+    },
+    {
+      "id": "inc_rec_017",
+      "incident_id": "INC-2026-1017",
+      "service_id": "srv_auth_login",
+      "title": "Concurrent session lock preventing re-entry after WiFi drop",
+      "severity": "HIGH",
+      "users_affected": 920,
+      "duration_minutes": 40,
+      "status": "OPEN",
+      "exam_period": true,
+      "created_at": "2026-09-01T23:48:00+00:00"
+    },
+    {
+      "id": "inc_rec_018",
+      "incident_id": "INC-2026-1018",
+      "service_id": "srv_auth_login",
+      "title": "Password reset rate limiter false positives",
+      "severity": "LOW",
+      "users_affected": 45,
+      "duration_minutes": 60,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-03T02:05:00+00:00"
+    },
+    {
+      "id": "inc_rec_019",
+      "incident_id": "INC-2026-1019",
+      "service_id": "srv_auth_login",
+      "title": "OAuth2 callback redirect loop on Safari desktop",
+      "severity": "MEDIUM",
+      "users_affected": 180,
+      "duration_minutes": 90,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T09:58:00+00:00"
+    },
+    {
+      "id": "inc_rec_020",
+      "incident_id": "INC-2026-1020",
+      "service_id": "srv_auth_login",
+      "title": "SAML assertion signature expiration on University IdP",
+      "severity": "HIGH",
+      "users_affected": 650,
+      "duration_minutes": 30,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-01T19:13:00+00:00"
+    },
+    {
+      "id": "inc_rec_021",
+      "incident_id": "INC-2026-1021",
+      "service_id": "srv_auth_login",
+      "title": "Proctor token refresh race condition",
+      "severity": "MEDIUM",
+      "users_affected": 210,
+      "duration_minutes": 25,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-01T12:13:00+00:00"
+    },
+    {
+      "id": "inc_rec_022",
+      "incident_id": "INC-2026-1022",
+      "service_id": "srv_auth_login",
+      "title": "Hardware security key WebAuthn edge timeout",
+      "severity": "LOW",
+      "users_affected": 12,
+      "duration_minutes": 110,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T11:50:00+00:00"
+    },
+    {
+      "id": "inc_rec_023",
+      "incident_id": "INC-2026-1023",
+      "service_id": "srv_video_stream",
+      "title": "Lecture video playback stutter in engineering dorms",
+      "severity": "LOW",
+      "users_affected": 85,
+      "duration_minutes": 120,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T23:23:00+00:00"
+    },
+    {
+      "id": "inc_rec_024",
+      "incident_id": "INC-2026-1024",
+      "service_id": "srv_video_stream",
+      "title": "HLS transcoding queue backlog for morning review lectures",
+      "severity": "MEDIUM",
+      "users_affected": 230,
+      "duration_minutes": 75,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T16:55:00+00:00"
+    },
+    {
+      "id": "inc_rec_025",
+      "incident_id": "INC-2026-1025",
+      "service_id": "srv_video_stream",
+      "title": "Closed captions missing on chemistry review seminar",
+      "severity": "LOW",
+      "users_affected": 40,
+      "duration_minutes": 180,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T08:28:00+00:00"
+    },
+    {
+      "id": "inc_rec_026",
+      "incident_id": "INC-2026-1026",
+      "service_id": "srv_video_stream",
+      "title": "CDN cache miss spike on physics revision module",
+      "severity": "LOW",
+      "users_affected": 110,
+      "duration_minutes": 45,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T10:07:00+00:00"
+    },
+    {
+      "id": "inc_rec_027",
+      "incident_id": "INC-2026-1027",
+      "service_id": "srv_video_stream",
+      "title": "Variable bitrate ladder switching delay on iOS",
+      "severity": "LOW",
+      "users_affected": 60,
+      "duration_minutes": 60,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T10:30:00+00:00"
+    },
+    {
+      "id": "inc_rec_028",
+      "incident_id": "INC-2026-1028",
+      "service_id": "srv_video_stream",
+      "title": "Video seek thumbnail generator timeout",
+      "severity": "LOW",
+      "users_affected": 15,
+      "duration_minutes": 300,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T09:20:00+00:00"
+    },
+    {
+      "id": "inc_rec_029",
+      "incident_id": "INC-2026-1029",
+      "service_id": "srv_video_stream",
+      "title": "Video embed iframe security sandbox restriction on Safari",
+      "severity": "LOW",
+      "users_affected": 35,
+      "duration_minutes": 90,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T19:48:00+00:00"
+    },
+    {
+      "id": "inc_rec_030",
+      "incident_id": "INC-2026-1030",
+      "service_id": "srv_video_stream",
+      "title": "Analytics beacon drop on lecture completion tracking",
+      "severity": "LOW",
+      "users_affected": 0,
+      "duration_minutes": 240,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T17:05:00+00:00"
+    },
+    {
+      "id": "inc_rec_031",
+      "incident_id": "INC-2026-1031",
+      "service_id": "srv_course_content",
+      "title": "PDF reader rendering glitch on complex mathematical notation",
+      "severity": "LOW",
+      "users_affected": 95,
+      "duration_minutes": 150,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T10:12:00+00:00"
+    },
+    {
+      "id": "inc_rec_032",
+      "incident_id": "INC-2026-1032",
+      "service_id": "srv_course_content",
+      "title": "Formula sheet download 404 during exam preparation hour",
+      "severity": "MEDIUM",
+      "users_affected": 420,
+      "duration_minutes": 18,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-02T03:25:00+00:00"
+    },
+    {
+      "id": "inc_rec_033",
+      "incident_id": "INC-2026-1033",
+      "service_id": "srv_course_content",
+      "title": "Course syllabus file permission synchronization delay",
+      "severity": "LOW",
+      "users_affected": 50,
+      "duration_minutes": 80,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-03T00:30:00+00:00"
+    },
+    {
+      "id": "inc_rec_034",
+      "incident_id": "INC-2026-1034",
+      "service_id": "srv_course_content",
+      "title": "Assignment asset zip extraction error",
+      "severity": "LOW",
+      "users_affected": 25,
+      "duration_minutes": 45,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T21:54:00+00:00"
+    },
+    {
+      "id": "inc_rec_035",
+      "incident_id": "INC-2026-1035",
+      "service_id": "srv_course_content",
+      "title": "Full-text search indexer lagging behind new module uploads",
+      "severity": "LOW",
+      "users_affected": 0,
+      "duration_minutes": 360,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-03T03:06:00+00:00"
+    },
+    {
+      "id": "inc_rec_036",
+      "incident_id": "INC-2026-1036",
+      "service_id": "srv_course_content",
+      "title": "Module completion checkbox state out of sync",
+      "severity": "LOW",
+      "users_affected": 140,
+      "duration_minutes": 120,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T01:21:00+00:00"
+    },
+    {
+      "id": "inc_rec_037",
+      "incident_id": "INC-2026-1037",
+      "service_id": "srv_course_content",
+      "title": "Practice quiz question asset CDN 502 Bad Gateway",
+      "severity": "MEDIUM",
+      "users_affected": 310,
+      "duration_minutes": 25,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-02T08:01:00+00:00"
+    },
+    {
+      "id": "inc_rec_038",
+      "incident_id": "INC-2026-1038",
+      "service_id": "srv_api_gateway",
+      "title": "Rate limiting burst threshold misconfiguration on exam routes",
+      "severity": "HIGH",
+      "users_affected": 1850,
+      "duration_minutes": 15,
+      "status": "MITIGATED",
+      "exam_period": true,
+      "created_at": "2026-09-01T23:28:00+00:00"
+    },
+    {
+      "id": "inc_rec_039",
+      "incident_id": "INC-2026-1039",
+      "service_id": "srv_api_gateway",
+      "title": "TLS handshake negotiation latency spike on mobile carrier proxy",
+      "severity": "MEDIUM",
+      "users_affected": 520,
+      "duration_minutes": 30,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-03T03:04:00+00:00"
+    },
+    {
+      "id": "inc_rec_040",
+      "incident_id": "INC-2026-1040",
+      "service_id": "srv_api_gateway",
+      "title": "Edge WAF false positive rule blocking LaTeX equation submissions",
+      "severity": "CRITICAL",
+      "users_affected": 890,
+      "duration_minutes": 22,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-03T00:16:00+00:00"
+    },
+    {
+      "id": "inc_rec_041",
+      "incident_id": "INC-2026-1041",
+      "service_id": "srv_api_gateway",
+      "title": "HTTP/2 connection pooling exhaustion on backend proxy group",
+      "severity": "HIGH",
+      "users_affected": 1450,
+      "duration_minutes": 28,
+      "status": "INVESTIGATING",
+      "exam_period": true,
+      "created_at": "2026-09-03T02:26:00+00:00"
+    },
+    {
+      "id": "inc_rec_042",
+      "incident_id": "INC-2026-1042",
+      "service_id": "srv_api_gateway",
+      "title": "CORS header mismatch on third-party proctoring widget",
+      "severity": "MEDIUM",
+      "users_affected": 210,
+      "duration_minutes": 45,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-01T05:13:00+00:00"
+    },
+    {
+      "id": "inc_rec_043",
+      "incident_id": "INC-2026-1043",
+      "service_id": "srv_api_gateway",
+      "title": "Keepalive timeout mismatch causing TCP resets",
+      "severity": "MEDIUM",
+      "users_affected": 340,
+      "duration_minutes": 60,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T21:37:00+00:00"
+    },
+    {
+      "id": "inc_rec_044",
+      "incident_id": "INC-2026-1044",
+      "service_id": "srv_api_gateway",
+      "title": "DDoS mitigation challenge triggered during synchronized exam launch",
+      "severity": "HIGH",
+      "users_affected": 2200,
+      "duration_minutes": 12,
+      "status": "RESOLVED",
+      "exam_period": true,
+      "created_at": "2026-09-01T21:23:00+00:00"
+    },
+    {
+      "id": "inc_rec_045",
+      "incident_id": "INC-2026-1045",
+      "service_id": "srv_video_stream",
+      "title": "Internal telemetry ping timeout on unused CDN edge in Zurich",
+      "severity": "LOW",
+      "users_affected": 3,
+      "duration_minutes": 240,
+      "status": "OPEN",
+      "exam_period": false,
+      "created_at": "2026-09-01T11:45:00+00:00"
+    },
+    {
+      "id": "inc_rec_046",
+      "incident_id": "INC-2026-1046",
+      "service_id": "srv_video_stream",
+      "title": "Chromecast discovery SSDP socket warning in dev build",
+      "severity": "LOW",
+      "users_affected": 2,
+      "duration_minutes": 400,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T11:05:00+00:00"
+    },
+    {
+      "id": "inc_rec_047",
+      "incident_id": "INC-2026-1047",
+      "service_id": "srv_video_stream",
+      "title": "Telemetry collector warning on deprecation header",
+      "severity": "LOW",
+      "users_affected": 1,
+      "duration_minutes": 500,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T05:48:00+00:00"
+    },
+    {
+      "id": "inc_rec_048",
+      "incident_id": "INC-2026-1048",
+      "service_id": "srv_video_stream",
+      "title": "Admin preview watermark alpha channel glitch",
+      "severity": "LOW",
+      "users_affected": 4,
+      "duration_minutes": 180,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T00:41:00+00:00"
+    },
+    {
+      "id": "inc_rec_049",
+      "incident_id": "INC-2026-1049",
+      "service_id": "srv_video_stream",
+      "title": "Subrip subtitle UTF-8 BOM encoding alert",
+      "severity": "LOW",
+      "users_affected": 6,
+      "duration_minutes": 90,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T17:54:00+00:00"
+    },
+    {
+      "id": "inc_rec_050",
+      "incident_id": "INC-2026-1050",
+      "service_id": "srv_video_stream",
+      "title": "HLS segment duration rounding drift log notice",
+      "severity": "LOW",
+      "users_affected": 0,
+      "duration_minutes": 720,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T15:51:00+00:00"
+    },
+    {
+      "id": "inc_rec_051",
+      "incident_id": "INC-2026-1051",
+      "service_id": "srv_course_content",
+      "title": "Internal markdown link validator 301 redirect notice",
+      "severity": "LOW",
+      "users_affected": 0,
+      "duration_minutes": 600,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T12:21:00+00:00"
+    },
+    {
+      "id": "inc_rec_052",
+      "incident_id": "INC-2026-1052",
+      "service_id": "srv_course_content",
+      "title": "Syllabus print stylesheet font fallback notice",
+      "severity": "LOW",
+      "users_affected": 5,
+      "duration_minutes": 200,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T10:51:00+00:00"
+    },
+    {
+      "id": "inc_rec_053",
+      "incident_id": "INC-2026-1053",
+      "service_id": "srv_auth_login",
+      "title": "Admin audit logger secondary replica failover probe",
+      "severity": "LOW",
+      "users_affected": 0,
+      "duration_minutes": 45,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T09:27:00+00:00"
+    },
+    {
+      "id": "inc_rec_054",
+      "incident_id": "INC-2026-1054",
+      "service_id": "srv_exam_sub",
+      "title": "Legacy exam archive reader cache miss in off-season course",
+      "severity": "LOW",
+      "users_affected": 2,
+      "duration_minutes": 120,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-02T15:09:00+00:00"
+    },
+    {
+      "id": "inc_rec_055",
+      "incident_id": "INC-2026-1055",
+      "service_id": "srv_api_gateway",
+      "title": "Static favicon request 404 from older iOS webclip",
+      "severity": "LOW",
+      "users_affected": 8,
+      "duration_minutes": 1440,
+      "status": "RESOLVED",
+      "exam_period": false,
+      "created_at": "2026-09-01T18:11:00+00:00"
+    }
+  ],
+  "feature_plans": [
+    {
+      "id": "feat_01",
+      "feature_name": "AI Study Buddy & Exam Readiness Summaries",
+      "description": "Interactive Gemini-powered personalized exam study guides.",
+      "team": "Pedagogy AI Team",
+      "business_priority": "HIGH",
+      "estimated_effort": "LARGE",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "feat_02",
+      "feature_name": "Gamified Milestone Badges for Course Streaks",
+      "description": "Badges and rewards for continuous lecture completion.",
+      "team": "Student Engagement Team",
+      "business_priority": "MEDIUM",
+      "estimated_effort": "MEDIUM",
+      "status": "BACKLOG"
+    },
+    {
+      "id": "feat_03",
+      "feature_name": "Dark Mode & Accessibility Theme Palette",
+      "description": "High-contrast themes for low-vision and night study sessions.",
+      "team": "UI/UX Core Team",
+      "business_priority": "HIGH",
+      "estimated_effort": "SMALL",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "feat_04",
+      "feature_name": "Peer-to-Peer Study Group Video Breakouts",
+      "description": "WebRTC breakout rooms for collaborative student problem solving.",
+      "team": "Collaboration Team",
+      "business_priority": "LOW",
+      "estimated_effort": "XLARGE",
+      "status": "BACKLOG"
+    },
+    {
+      "id": "feat_05",
+      "feature_name": "Latex Math Formula Live Equation Editor",
+      "description": "Visual formula builder for STEM problem sets.",
+      "team": "Content Authoring Team",
+      "business_priority": "MEDIUM",
+      "estimated_effort": "MEDIUM",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "feat_06",
+      "feature_name": "Automated Code Submission Sandbox (Python/C++)",
+      "description": "Secure containerized compiler for coding exam auto-grading.",
+      "team": "Grading Systems Team",
+      "business_priority": "CRITICAL",
+      "estimated_effort": "XLARGE",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "feat_07",
+      "feature_name": "Offline Video Download for Mobile App",
+      "description": "Encrypted offline caching for students with spotty home broadband.",
+      "team": "Mobile App Team",
+      "business_priority": "HIGH",
+      "estimated_effort": "LARGE",
+      "status": "BACKLOG"
+    },
+    {
+      "id": "feat_08",
+      "feature_name": "Proctoring Screen Share & AI Gaze Tracking",
+      "description": "Automated exam integrity anomaly detection.",
+      "team": "Assessment Security Team",
+      "business_priority": "CRITICAL",
+      "estimated_effort": "LARGE",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "feat_09",
+      "feature_name": "Course Certificate Blockchain Verification",
+      "description": "Verifiable cryptographic hash on completion diploma.",
+      "team": "Credentials Team",
+      "business_priority": "LOW",
+      "estimated_effort": "MEDIUM",
+      "status": "BACKLOG"
+    },
+    {
+      "id": "feat_10",
+      "feature_name": "Interactive Quiz Polls in Live Lectures",
+      "description": "Instant classroom polling and attendance verification.",
+      "team": "Classroom Interactive Team",
+      "business_priority": "MEDIUM",
+      "estimated_effort": "MEDIUM",
+      "status": "BACKLOG"
+    },
+    {
+      "id": "feat_11",
+      "feature_name": "Instructor Audio Feedback on Exam Submissions",
+      "description": "Allow professors to attach 60-second audio critiques.",
+      "team": "Grading Systems Team",
+      "business_priority": "LOW",
+      "estimated_effort": "SMALL",
+      "status": "BACKLOG"
+    },
+    {
+      "id": "feat_12",
+      "feature_name": "Multi-Lingual Subtitle Translation (12 Languages)",
+      "description": "Neural translation of lecture transcripts.",
+      "team": "Global Localization Team",
+      "business_priority": "MEDIUM",
+      "estimated_effort": "LARGE",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "feat_13",
+      "feature_name": "Calendar Synchronization with Google & Outlook",
+      "description": "Auto-sync exam deadlines into student personal calendars.",
+      "team": "Productivity Team",
+      "business_priority": "HIGH",
+      "estimated_effort": "SMALL",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "feat_14",
+      "feature_name": "Podcast Feed Generator from Audio Lectures",
+      "description": "Generate private RSS feeds for mobile commute listening.",
+      "team": "Content Distribution Team",
+      "business_priority": "LOW",
+      "estimated_effort": "SMALL",
+      "status": "BACKLOG"
+    },
+    {
+      "id": "feat_15",
+      "feature_name": "Automated Plagiarism Detection Engine",
+      "description": "Cross-submission vector similarity indexer.",
+      "team": "Assessment Security Team",
+      "business_priority": "HIGH",
+      "estimated_effort": "LARGE",
+      "status": "BLOCKED"
+    },
+    {
+      "id": "feat_16",
+      "feature_name": "Campus Discussion Forum with Upvoting",
+      "description": "StackOverflow-style Q&A for difficult exam practice problems.",
+      "team": "Community Team",
+      "business_priority": "MEDIUM",
+      "estimated_effort": "MEDIUM",
+      "status": "BACKLOG"
+    }
+  ],
+  "reliability_tasks": [
+    {
+      "id": "rel_task_01",
+      "task_name": "Partition Exam Submission DB & Implement Async Queueing",
+      "description": "Eliminate database lock contention on submission ledger during exam turn-in spikes. Introduce Kafka/BullMQ async ingestion buffer.",
+      "service_id": "srv_exam_sub",
+      "priority": "CRITICAL",
+      "status": "TODO",
+      "estimated_effort": "LARGE"
+    },
+    {
+      "id": "rel_task_02",
+      "task_name": "Implement Resilient Client-Side Answer Auto-Cache & Offline Sync",
+      "description": "Store answers in IndexedDB locally so students never lose progress if network drops during exam submission.",
+      "service_id": "srv_exam_sub",
+      "priority": "CRITICAL",
+      "status": "IN_PROGRESS",
+      "estimated_effort": "MEDIUM"
+    },
+    {
+      "id": "rel_task_03",
+      "task_name": "S3 Multipart Upload Circuit Breaker & Direct S3 Presigned URLs",
+      "description": "Bypass API backend servers for heavy PDF/exam scan uploads. Upload directly to object storage via presigned URLs.",
+      "service_id": "srv_exam_sub",
+      "priority": "HIGH",
+      "status": "TODO",
+      "estimated_effort": "MEDIUM"
+    },
+    {
+      "id": "rel_task_04",
+      "task_name": "Scale Redis Session Cluster & Optimize SSO Token Caching",
+      "description": "Increase Redis read-replicas to prevent 09:00 AM synchronized exam login bottleneck and session dropouts.",
+      "service_id": "srv_auth_login",
+      "priority": "HIGH",
+      "status": "TODO",
+      "estimated_effort": "SMALL"
+    },
+    {
+      "id": "rel_task_05",
+      "task_name": "Graceful Fallback Auth Token Grace Period on WiFi Reconnect",
+      "description": "Permit a 60-second grace window during active exams when student laptop switches access points or cellular hotspot.",
+      "service_id": "srv_auth_login",
+      "priority": "HIGH",
+      "status": "TODO",
+      "estimated_effort": "MEDIUM"
+    },
+    {
+      "id": "rel_task_06",
+      "task_name": "WAF Rule Tuning for STEM LaTeX / Math Syntax in Requests",
+      "description": "Prevent Cloudflare/Edge WAF false positives from blocking math equations containing SQL-like or script characters.",
+      "service_id": "srv_api_gateway",
+      "priority": "HIGH",
+      "status": "TODO",
+      "estimated_effort": "SMALL"
+    },
+    {
+      "id": "rel_task_07",
+      "task_name": "Tune Edge Gateway Keep-Alive & HTTP/2 Ingress Connection Pool",
+      "description": "Increase backend proxy keep-alive sockets to eliminate TCP handshake resets during synchronized 5,000-student exam starts.",
+      "service_id": "srv_api_gateway",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "estimated_effort": "SMALL"
+    },
+    {
+      "id": "rel_task_08",
+      "task_name": "Multi-CDN Failover Routing for Course Syllabus & Formula Sheets",
+      "description": "Ensure static exam formula PDFs and reference documents remain reachable even if primary CDN edge degrades.",
+      "service_id": "srv_course_content",
+      "priority": "MEDIUM",
+      "status": "BACKLOG",
+      "estimated_effort": "MEDIUM"
+    },
+    {
+      "id": "rel_task_09",
+      "task_name": "Optimize HLS Video Segment Caching on Edge Edge-Locations",
+      "description": "Warm CDN cache for high-demand exam prep lectures 24 hours before major midterms.",
+      "service_id": "srv_video_stream",
+      "priority": "LOW",
+      "status": "BACKLOG",
+      "estimated_effort": "SMALL"
+    },
+    {
+      "id": "rel_task_10",
+      "task_name": "Automate Canary Deployments with Automated Error-Budget Rollbacks",
+      "description": "Automatically rollback any deployment if 5-minute error budget burn rate exceeds 10x.",
+      "service_id": "srv_api_gateway",
+      "priority": "HIGH",
+      "status": "TODO",
+      "estimated_effort": "LARGE"
+    },
+    {
+      "id": "rel_task_11",
+      "task_name": "Database Deadlock Monitoring & Connection Pool Throttling",
+      "description": "Add pgBouncer connection pooling and proactive lock query termination for slow analytics queries during exam hours.",
+      "service_id": "srv_exam_sub",
+      "priority": "CRITICAL",
+      "status": "TODO",
+      "estimated_effort": "MEDIUM"
+    },
+    {
+      "id": "rel_task_12",
+      "task_name": "Fix Transcoding Queue Lag for Video Replays",
+      "description": "Offload non-critical lecture transcoding to off-peak worker spot instances.",
+      "service_id": "srv_video_stream",
+      "priority": "LOW",
+      "status": "BACKLOG",
+      "estimated_effort": "SMALL"
+    },
+    {
+      "id": "rel_task_13",
+      "task_name": "Resolve Subtitle Encoding BOM Glitch",
+      "description": "Fix character encoding parser in video player for foreign language course subtitles.",
+      "service_id": "srv_video_stream",
+      "priority": "LOW",
+      "status": "BACKLOG",
+      "estimated_effort": "SMALL"
+    },
+    {
+      "id": "rel_task_14",
+      "task_name": "Upgrade Course Content Search Engine Node Cluster",
+      "description": "Add read replicas to search cluster to absorb pre-exam revision search spikes.",
+      "service_id": "srv_course_content",
+      "priority": "MEDIUM",
+      "status": "BACKLOG",
+      "estimated_effort": "MEDIUM"
+    },
+    {
+      "id": "rel_task_15",
+      "task_name": "Implement Adaptive Rate-Limiting by Student Role & Active Exam Status",
+      "description": "Guarantee zero rate-limiting for active exam test-takers while strictly throttling bot scrapers and crawling.",
+      "service_id": "srv_api_gateway",
+      "priority": "HIGH",
+      "status": "TODO",
+      "estimated_effort": "MEDIUM"
+    },
+    {
+      "id": "rel_task_16",
+      "task_name": "Setup Dedicated Exam Emergency Hotline Telemetry Ingestion",
+      "description": "Ingest proctoring support desk phone tickets directly into real-time Prometheus alert pipeline.",
+      "service_id": "srv_auth_login",
+      "priority": "MEDIUM",
+      "status": "DONE",
+      "estimated_effort": "SMALL"
+    }
+  ],
+  "rules": [
+    {
+      "id": "rule_user_impact",
+      "rule_name": "User Impact",
+      "weight": 30.0,
+      "threshold": 200.0,
+      "enabled": true,
+      "description": "Measures total students affected, outage duration, and blast radius of the service disruption."
+    },
+    {
+      "id": "rule_slo_breach",
+      "rule_name": "SLO Breach",
+      "weight": 25.0,
+      "threshold": 0.01,
+      "enabled": true,
+      "description": "Measures distance between current rolling SLI availability and contracted Service Level Objective target."
+    },
+    {
+      "id": "rule_error_budget",
+      "rule_name": "Error Budget",
+      "weight": 20.0,
+      "threshold": 70.0,
+      "enabled": true,
+      "description": "Calculates consumed error budget percentage and burn-rate exhaustion risks."
+    },
+    {
+      "id": "rule_incident_severity",
+      "rule_name": "Incident Severity",
+      "weight": 15.0,
+      "threshold": 2.0,
+      "enabled": true,
+      "description": "Weighted severity score based on logged support tickets and telemetry alerts."
+    },
+    {
+      "id": "rule_exam_period",
+      "rule_name": "Examination Period",
+      "weight": 10.0,
+      "threshold": 1.0,
+      "enabled": true,
+      "description": "Prioritizes mission-critical assessment workflows when examination mode is active across the university."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "dec_seed_01",
+      "recommendation_id": "rec_seed_archive",
+      "user_id": "usr_mgr_1",
+      "user_name": "Elena Rostova",
+      "decision": "OVERRIDDEN",
+      "override_reason": "Temporary load-shedding proxy rule deployed at edge; full database re-partitioning deferred to scheduled maintenance window post-finals.",
+      "task_name": "Partition Exam Submission DB & Implement Async Queueing",
+      "service_name": "Exam Submission Service",
+      "created_at": "2026-09-03T02:45:00+00:00"
+    }
+  ]
+}
