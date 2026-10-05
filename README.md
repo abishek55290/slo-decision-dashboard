@@ -62,7 +62,7 @@ The system is designed as a **decision-support tool**, not an autonomous decisio
               ▼                ▼                ▼
        ┌─────────────┐  ┌─────────────┐  ┌──────────────┐
        │ SLO / SLI   │  │ Incidents   │  │ Features /   │
-       │ Data        │  │ Data        │  │ Reliability   │
+       │ Data        │  │ Data        │  │ Reliability  │
        └─────────────┘  └─────────────┘  └──────────────┘
                                │
                                ▼
@@ -135,6 +135,7 @@ Evidence:
 ✓ Examination period active
 
 Reason:
+
 The issue affects a large number of users while the
 service is exceeding its reliability objective during
 a high-demand examination period.
@@ -261,7 +262,7 @@ The primary success metric is:
 
 ```text
 Reliability Priorities with Measurable User-Impact Evidence
----------------------------------------------------------------- × 100
+------------------------------------------------------------ × 100
 Total Reliability Priorities
 ```
 
@@ -271,30 +272,245 @@ The dashboard calculates the result from the available validation data rather th
 
 ---
 
-## 🧪 Validation & Adversarial Testing
+## 🧪 Validation, Unit Testing & Error Handling
 
-The prototype includes test scenarios covering both normal and failure conditions.
+The SLO Decision Dashboard uses automated unit tests to validate the reliability decision engine under both normal and adversarial conditions.
 
-### Normal Cases
+### Unit Testing
 
-* Healthy service
-* Moderate SLO degradation
-* High user impact
-* Active examination period
+The Python decision engine is tested using **pytest**.
 
-### Adversarial / Edge Cases
+Test file:
 
-* Severe SLO breach
-* Many incidents but low user impact
-* High user impact during examinations
-* High-impact recommendation override
-* Missing SLO information
-* Missing incident information
-* Missing user-impact information
-* Zero-request scenarios
-* Invalid rule weights
+```text
+tests/test_decision_engine.py
+```
 
-The objective is to ensure that invalid or incomplete data does not cause the decision engine to crash or produce unexplained behavior.
+Run the complete test suite with:
+
+```bash
+python -m pytest -v
+```
+
+The current test suite contains **20 test cases** covering normal behavior, boundary conditions, missing data, invalid inputs, and adversarial scenarios.
+
+### Test Coverage
+
+| Test Case | Validation                                                             |
+| --------- | ---------------------------------------------------------------------- |
+| Case 1    | Healthy service produces LOW priority                                  |
+| Case 2    | Severe SLO breach produces CRITICAL priority                           |
+| Case 3    | High incident count with low user impact is not blindly ranked highest |
+| Case 4    | Examination-period amplification                                       |
+| Case 5    | Zero requests do not cause division-by-zero                            |
+| Case 6    | Malformed rule weights are handled safely                              |
+| Case 7    | Extreme user-impact values are clamped                                 |
+| Case 8    | Recommendation and evidence generation                                 |
+| Case 9    | Telemetry outage handling                                              |
+| Case 10   | Missing SLO target                                                     |
+| Case 11   | Zero HTTP requests                                                     |
+| Case 12   | Corrupted rule weights                                                 |
+| Case 13   | Extreme user-impact clamping                                           |
+| Case 14   | Error budget above 100%                                                |
+| Case 15   | P1 incident with low user impact                                       |
+| Case 16   | Low incident count with high user impact                               |
+| Case 17   | Conflicting priority signals                                           |
+| Case 18   | Extreme examination-period load                                        |
+| Case 19   | Missing incident severity                                              |
+| Case 20   | Invalid negative metrics                                               |
+
+### Current Test Result
+
+The complete automated test suite currently passes:
+
+```text
+20 passed
+```
+
+This confirms that the implemented decision-engine behavior satisfies the defined normal and adversarial validation scenarios.
+
+### Adversarial Testing
+
+The test suite intentionally includes abnormal scenarios such as:
+
+* Missing SLO target
+* Zero HTTP requests
+* Corrupted rule weights
+* Extreme user-impact values
+* Error budget above 100%
+* Low-impact P1 incidents
+* Conflicting priority signals
+* Extreme examination-period load
+* Missing incident severity
+* Invalid negative metrics
+* Telemetry outage
+
+These tests verify that the decision engine remains stable when input data is incomplete, inconsistent, or outside expected operating ranges.
+
+### Error Boundaries and Defensive Handling
+
+The application includes defensive handling at multiple levels.
+
+#### Decision Engine
+
+The decision engine protects against:
+
+* Missing SLO targets
+* Zero HTTP requests
+* Invalid negative metrics
+* Missing incident severity
+* Corrupted or malformed rule weights
+* Extremely large user-impact values
+* Error-budget consumption above 100%
+* Missing telemetry data
+
+Scores are clamped to valid ranges where required so that unexpected input does not produce invalid priority values.
+
+#### API Layer
+
+The Express API validates important request data before modifying application state.
+
+Examples include:
+
+* Returning `404` when a requested task or recommendation does not exist
+* Returning `400` for invalid rule arrays
+* Rejecting empty human override reasons
+* Returning `500` when the application dataset is unavailable
+* Catching seed-data reset failures
+
+#### Human Override Boundary
+
+High-impact recommendations require human control.
+
+An override cannot be stored without a non-empty justification:
+
+```text
+Recommendation
+      ↓
+Human Review
+      ↓
+Approve OR Override
+            ↓
+    Override reason required
+            ↓
+       Decision recorded
+```
+
+This prevents the system from silently changing an engineering recommendation without an accountable human decision.
+
+### Testing Workflow
+
+The validation workflow is:
+
+```text
+Code Change
+    ↓
+Run pytest
+    ↓
+20 automated scenarios
+    ↓
+Check failures
+    ↓
+Fix implementation
+    ↓
+Run pytest again
+    ↓
+20/20 tests passed
+    ↓
+Commit and push to GitHub
+```
+
+The test suite is therefore used as a regression check whenever decision-engine logic is modified.
+
+---
+
+## 🔌 API Endpoint Documentation
+
+The application exposes REST API endpoints through the Express/TypeScript server.
+
+### Health & System
+
+| Method | Endpoint          | Purpose                                        |
+| ------ | ----------------- | ---------------------------------------------- |
+| GET    | `/api/health`     | Checks API health and current exam-mode status |
+| POST   | `/api/exam-mode`  | Enables or disables examination mode           |
+| POST   | `/api/reset-data` | Restores the synthetic dataset                 |
+
+### Reliability Data
+
+| Method | Endpoint                            | Purpose                                             |
+| ------ | ----------------------------------- | --------------------------------------------------- |
+| GET    | `/api/services`                     | Returns available services                          |
+| GET    | `/api/slos`                         | Returns SLO/SLI health and error-budget information |
+| GET    | `/api/incidents`                    | Returns support/reliability incidents               |
+| GET    | `/api/reliability-tasks`            | Returns reliability engineering tasks               |
+| POST   | `/api/reliability-tasks/:id/status` | Updates a reliability task status                   |
+| GET    | `/api/features`                     | Returns planned product features                    |
+
+The incidents endpoint also supports filtering by service:
+
+```text
+GET /api/incidents?service_id=<service-id>
+```
+
+### Decision Rules
+
+| Method | Endpoint     | Purpose                                             |
+| ------ | ------------ | --------------------------------------------------- |
+| GET    | `/api/rules` | Returns configured decision rules                   |
+| PUT    | `/api/rules` | Updates rule weights, thresholds, and enabled state |
+
+Rule weights are validated before being applied to the decision engine.
+
+### Recommendations
+
+| Method | Endpoint                            | Purpose                                                |
+| ------ | ----------------------------------- | ------------------------------------------------------ |
+| GET    | `/api/recommendations`              | Calculates and returns all reliability recommendations |
+| GET    | `/api/recommendations/:id`          | Returns one recommendation with supporting evidence    |
+| POST   | `/api/recommendations/:id/approve`  | Records a human approval                               |
+| POST   | `/api/recommendations/:id/override` | Records a human override with justification            |
+
+The override endpoint requires a non-empty `override_reason`.
+
+Example request:
+
+```json
+{
+  "user_id": "usr_mgr_1",
+  "user_name": "Engineering Manager",
+  "override_reason": "The incident has already been mitigated and the recommendation can be deferred."
+}
+```
+
+### Decisions & Evaluation
+
+| Method | Endpoint              | Purpose                                                   |
+| ------ | --------------------- | --------------------------------------------------------- |
+| GET    | `/api/decisions`      | Returns recorded human decisions                          |
+| GET    | `/api/metrics`        | Calculates the primary reliability evaluation metric      |
+| GET    | `/api/error-analysis` | Returns documented normal and adversarial error scenarios |
+
+### API Error Handling
+
+The API uses HTTP status codes to communicate failures.
+
+```text
+200 → Successful request
+400 → Invalid request data
+404 → Requested resource not found
+500 → Server or dataset failure
+```
+
+Important validation examples include:
+
+* Missing recommendation or task → `404`
+* Invalid rules array → `400`
+* Empty override reason → `400`
+* Missing application dataset → `500`
+* Dataset reset failure → `500`
+
+The API layer therefore acts as a validation boundary between the frontend and the decision/data layer.
 
 ---
 
@@ -316,6 +532,62 @@ seed/
 ├── seed_data.json
 └── seed_data.py
 ```
+
+### Database Schema
+
+The PostgreSQL schema is designed to store reliability metrics, incidents, engineering work, recommendations, and human decisions.
+
+| Table               | Purpose                                         | Important Fields                                                                                      |
+| ------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `users`             | Stores application users and roles              | `id`, `name`, `email`, `role`                                                                         |
+| `services`          | Stores monitored services and their SLO targets | `id`, `name`, `slo_target`, `sli_type`, `tier`                                                        |
+| `sli_metrics`       | Stores service reliability measurements         | `service_id`, `timestamp`, `total_requests`, `successful_requests`, `failed_requests`, `availability` |
+| `incidents`         | Stores support and reliability incidents        | `service_id`, `severity`, `users_affected`, `duration_minutes`, `exam_period`                         |
+| `feature_plans`     | Stores planned product features                 | `feature_name`, `business_priority`, `estimated_effort`, `status`                                     |
+| `reliability_tasks` | Stores engineering reliability work             | `task_name`, `service_id`, `priority`, `status`, `estimated_effort`                                   |
+| `rules`             | Stores configurable decision-engine rules       | `rule_name`, `weight`, `threshold`, `enabled`                                                         |
+| `recommendations`   | Stores generated reliability recommendations    | `task_id`, `service_id`, `priority_score`, `priority_level`, `evidence`, `status`                     |
+| `decisions`         | Stores human approval and override decisions    | `recommendation_id`, `user_id`, `decision`, `override_reason`                                         |
+
+### Database Relationships
+
+The main relationships are:
+
+```text
+Users
+  │
+  └────────────── Decisions
+                       │
+                       ▼
+                 Recommendations
+                  │            │
+                  ▼            ▼
+          Reliability Tasks   Services
+                  │            │
+                  └────────────┘
+                       │
+                       ▼
+                  SLI Metrics
+
+Services
+   │
+   └────────────── Incidents
+
+Rules
+   │
+   └────── Decision Engine
+```
+
+Foreign-key constraints maintain relationships between services, metrics, incidents, reliability tasks, recommendations, and human decisions.
+
+Indexes are also defined for frequently queried reliability data, including:
+
+* SLI metrics by service and timestamp
+* Incidents by service
+* Incidents during examination periods
+* Recommendations by decision status
+
+This schema supports the explainable decision workflow while keeping reliability evidence and human decisions traceable.
 
 ---
 
@@ -398,26 +670,38 @@ Install:
 * PostgreSQL
 * Git
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/slo-decision-dashboard.git
+git clone https://github.com/abishek55290/slo-decision-dashboard.git
 cd slo-decision-dashboard
 ```
 
-### 2. Install frontend dependencies
+### 2. Install Frontend Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Install Python dependencies
+### 3. Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Start the application
+### 4. Run the Test Suite
+
+```bash
+python -m pytest -v
+```
+
+Expected result:
+
+```text
+20 passed
+```
+
+### 5. Start the Application
 
 ```bash
 npm run dev
@@ -435,15 +719,11 @@ http://localhost:3000
 
 Environment-specific configuration should be stored outside source control.
 
-The repository includes:
-
-```text
-.env.example
-```
-
 Sensitive environment files such as `.env.local` are excluded through `.gitignore`.
 
 **Never commit API keys, passwords, database credentials, or other secrets to the repository.**
+
+Production deployment would require stronger authentication, authorization, monitoring, and security controls.
 
 ---
 
@@ -481,24 +761,4 @@ Potential production extensions include:
 
 ## 🎯 Project Outcome
 
-The SLO Decision Dashboard demonstrates an end-to-end approach for transforming reliability data into **explainable, measurable, and human-reviewed engineering priorities**.
-
-Instead of asking:
-
-> "What should engineering work on first?"
-
-the system provides:
-
-> **"What should be prioritized, what evidence supports it, and who approved the decision?"**
-
----
-
-## 📌 Project Status
-
-**Prototype:** End-to-end functional prototype
-
-**Focus:** SLO-driven reliability prioritization
-
-**Decision Style:** Explainable + rule-based + human-in-the-loop
-
-**Primary Domain:** Online learning / examination infrastructure
+The SLO Decision Dashboard demonstrat
