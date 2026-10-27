@@ -121,10 +121,23 @@ export function calculateIncidentScore(
     };
   }
 
-  const criticalCount = incidents.filter(i => i.severity === 'CRITICAL').length;
-  const highCount = incidents.filter(i => i.severity === 'HIGH').length;
-  const mediumCount = incidents.filter(i => i.severity === 'MEDIUM').length;
-  const lowCount = incidents.filter(i => i.severity === 'LOW').length;
+ 
+const criticalCount = incidents.filter(
+  i => i.severity === 'CRITICAL' || i.severity === 'P1'
+).length;
+
+const highCount = incidents.filter(
+  i => i.severity === 'HIGH' || i.severity === 'P2'
+).length;
+
+const mediumCount = incidents.filter(
+  i => i.severity === 'MEDIUM' || i.severity === 'P3'
+).length;
+
+const lowCount = incidents.filter(
+  i => i.severity === 'LOW' || i.severity === 'P4'
+).length;
+
 
   const weightedSum = (
     criticalCount * 10.0 +
@@ -154,7 +167,7 @@ export function calculateExamPeriodScore(
   examModeActive: boolean
 ): number {
   if (!examModeActive && !hasExamIncidents) {
-    return 15.0;
+    return 0.0;
   }
 
   if (serviceTier === 'TIER_1') {
@@ -216,19 +229,21 @@ export function calculatePriorityScore(
   let priority_level: PriorityLevel = 'LOW';
   let requires_human_approval = false;
 
-  if (finalScore >= 75.0) {
+  
+  if (finalScore >= 70.0) {
     priority_level = 'CRITICAL';
     requires_human_approval = true;
-  } else if (finalScore >= 55.0) {
+  } else if (finalScore >= 50.0) {
     priority_level = 'HIGH';
     requires_human_approval = true;
-  } else if (finalScore >= 35.0) {
+  } else if (finalScore >= 30.0) {
     priority_level = 'MEDIUM';
     requires_human_approval = false;
   } else {
     priority_level = 'LOW';
     requires_human_approval = false;
   }
+
 
   return {
     priority_score: finalScore,

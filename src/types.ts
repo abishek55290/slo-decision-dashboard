@@ -37,7 +37,15 @@ export interface SLIMetric {
   availability: number; // %
 }
 
-export type IncidentSeverity = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+export type IncidentSeverity =
+  | 'LOW'
+  | 'MEDIUM'
+  | 'HIGH'
+  | 'CRITICAL'
+  | 'P1'
+  | 'P2'
+  | 'P3'
+  | 'P4';
 export type IncidentStatus = 'OPEN' | 'INVESTIGATING' | 'MITIGATED' | 'RESOLVED';
 
 export interface Incident {

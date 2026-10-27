@@ -246,3 +246,5 @@ export function runAllAutomatedTests(): TestResultItem[] {
 
   return results;
 }
+
+console.log(runAllAutomatedTests());

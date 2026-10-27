@@ -433,7 +433,7 @@
       "total_requests": 81142,
       "successful_requests": 81138,
       "failed_requests": 4,
-      "response_time": 132.0,
+      "response_time": 132,
       "availability": 99.995
     },
     {
@@ -2235,42 +2235,47 @@
     {
       "id": "rule_user_impact",
       "rule_name": "User Impact",
-      "weight": 30.0,
-      "threshold": 200.0,
+      "weight": 30,
+      "threshold": 50,
       "enabled": true,
-      "description": "Measures total students affected, outage duration, and blast radius of the service disruption."
+      "description": "Measures total students affected, outage duration, and blast radius of the service disruption.",
+      "updated_at": "2026-10-27T07:01:15.012Z"
     },
     {
       "id": "rule_slo_breach",
       "rule_name": "SLO Breach",
-      "weight": 25.0,
-      "threshold": 0.01,
+      "weight": 25,
+      "threshold": 0.1,
       "enabled": true,
-      "description": "Measures distance between current rolling SLI availability and contracted Service Level Objective target."
+      "description": "Measures distance between current rolling SLI availability and contracted Service Level Objective target.",
+      "updated_at": "2026-10-27T07:01:15.012Z"
     },
     {
       "id": "rule_error_budget",
       "rule_name": "Error Budget",
-      "weight": 20.0,
-      "threshold": 70.0,
+      "weight": 20,
+      "threshold": 70,
       "enabled": true,
-      "description": "Calculates consumed error budget percentage and burn-rate exhaustion risks."
+      "description": "Calculates consumed error budget percentage and burn-rate exhaustion risks.",
+      "updated_at": "2026-10-27T07:01:15.013Z"
     },
     {
       "id": "rule_incident_severity",
       "rule_name": "Incident Severity",
-      "weight": 15.0,
-      "threshold": 2.0,
+      "weight": 15,
+      "threshold": 5,
       "enabled": true,
-      "description": "Weighted severity score based on logged support tickets and telemetry alerts."
+      "description": "Weighted severity score based on logged support tickets and telemetry alerts.",
+      "updated_at": "2026-10-27T07:01:15.013Z"
     },
     {
       "id": "rule_exam_period",
       "rule_name": "Examination Period",
-      "weight": 10.0,
-      "threshold": 1.0,
+      "weight": 10,
+      "threshold": 1,
       "enabled": true,
-      "description": "Prioritizes mission-critical assessment workflows when examination mode is active across the university."
+      "description": "Prioritizes mission-critical assessment workflows when examination mode is active across the university.",
+      "updated_at": "2026-10-27T07:01:15.013Z"
     }
   ],
   "decisions": [
@@ -2284,6 +2289,24 @@
       "task_name": "Partition Exam Submission DB & Implement Async Queueing",
       "service_name": "Exam Submission Service",
       "created_at": "2026-09-03T02:45:00+00:00"
+    },
+    {
+      "id": "dec_1793084304088",
+      "recommendation_id": "rec_rel_task_05",
+      "user_id": "usr_mgr_1",
+      "user_name": "Elena Rostova",
+      "decision": "APPROVED",
+      "override_reason": null,
+      "created_at": "2026-10-27T06:58:24.088Z"
+    },
+    {
+      "id": "dec_1793084334644",
+      "recommendation_id": "rec_rel_task_01",
+      "user_id": "usr_mgr_1",
+      "user_name": "Elena Rostova",
+      "decision": "APPROVED",
+      "override_reason": null,
+      "created_at": "2026-10-27T06:58:54.644Z"
     }
   ]
 }
